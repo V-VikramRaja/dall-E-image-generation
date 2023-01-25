@@ -12,8 +12,18 @@ const CreatePost = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {};
-  const handleChange = (e) => {};
-  const handleSurpriceMe = (e) => {};
+  const handleChange = (e) => {
+    // Spread the form and update the e.target.value
+    setForm({ ...form, [e.target.value]: e.target.value });
+  };
+
+  const handleSurpriseMe = () => {
+    const randomPrompt = getRandomPrompt(form.prompt);
+    console.log(randomPrompt);
+    setForm({ ...form, prompt: randomPrompt });
+  };
+
+  const generateImg = () => {};
 
   return (
     <section className="max-w-7xl mx-auto">
@@ -39,11 +49,11 @@ const CreatePost = () => {
             labelName="Prompt"
             type="text"
             name="prompt"
-            placeholder="Ex: panda mad scientist mixing sparkling chemicals, digital art"
+            placeholder="Ex: An Impressionist oil painting of sunflowers in a purple vase…"
             value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe
-            handleSurpriceMe={handleSurpriceMe}
+            handleSurpriseMe={handleSurpriseMe}
           />
 
           {/* This dev shows the geenrated image else it will show a image which is called preview. */}
@@ -61,7 +71,36 @@ const CreatePost = () => {
                 className="w-9/12 h-9/12 object-contain opacity-40"
               />
             )}
+
+            {/* Trun generating image to true then you can see the gifference here */}
+            {generatingImg && (
+              <div className="absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)] rounded-lg">
+                <Loader />
+              </div>
+            )}
           </div>
+        </div>
+        <div className="mt-5 flex gap-5">
+          <button
+            type="button"
+            onClick={generateImg}
+            className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+          >
+            {generatingImg ? "Generating..." : "Generate"}
+          </button>
+        </div>
+
+        <div className="mt-10">
+          <p className="mt-2 text-[#666e75] text-[14px]">
+            Once you have created the image you want, you can share it with
+            others in the community
+          </p>
+          <button
+            type="submit"
+            className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+          >
+            {loading ? "Sharing" : "Share with the community"}
+          </button>
         </div>
       </form>
     </section>
