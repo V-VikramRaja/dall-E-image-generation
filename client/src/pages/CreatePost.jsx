@@ -11,7 +11,10 @@ const CreatePost = () => {
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const generateImg = () => {};
+
   const handleSubmit = (e) => {};
+
   const handleChange = (e) => {
     // Spread the form and update the e.target.value
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -22,8 +25,6 @@ const CreatePost = () => {
     console.log(randomPrompt);
     setForm({ ...form, prompt: randomPrompt });
   };
-
-  const generateImg = () => {};
 
   return (
     <section className="max-w-7xl mx-auto">
