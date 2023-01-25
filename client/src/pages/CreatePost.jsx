@@ -14,7 +14,7 @@ const CreatePost = () => {
   const handleSubmit = (e) => {};
   const handleChange = (e) => {
     // Spread the form and update the e.target.value
-    setForm({ ...form, [e.target.value]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSurpriseMe = () => {
