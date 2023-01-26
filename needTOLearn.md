@@ -22,4 +22,4 @@ Tailwincss
 
 ## New to hear
 
-npm install file-saver
+npm install file-saver cors dotenv
