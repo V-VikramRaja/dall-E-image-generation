@@ -18,8 +18,4 @@ This is just a form end page which will show the results for the searches if the
 
 #### src/pages/CreatePost.jsx
 
-This is also a frontend page which will be used to create a new post. Here we have a form which is a new component. Then it contain the place for the generated image to be shown. If nothing is generated then it will a asset image called preview.
-
-#### fromField
-
-Just a normal individual form field component.
+This is also a frontend page which will be used to create a new post.
